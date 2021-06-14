@@ -6,30 +6,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  serverElements = [];
-  newServerName = '';
-  newServerContent = '';
+  serverElements = [{type: 'server', name: 'Testserver', content: 'just a  test'}];
 
-  onAddServer() {
+  
+
+  onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverData.serverName,
+      content: serverData.serverContent
     });
   }
 
-  onAddBlueprint() {
+  onBlueprintAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverData.serverName,
+      content: serverData.serverContent
     });
   }
 
-
+  onChangeFirsT(){
+    this.serverElements[0].name = 'Changed!';
+  }
+  onDestroyFirst(){
+    this.serverElements.splice(0, 1);
+  }
   constructor() { }
 
   ngOnInit(): void {
   }
+  
 
 }

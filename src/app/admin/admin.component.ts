@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  oddNumber: number[] = [];
+  evenNumber: number[] = [];
+
+  onIntervalFired(firedNumar: number){
+    if(firedNumar % 2 === 0) {
+      this.evenNumber.push(firedNumar);
+    }
+    else{
+      this.oddNumber.push(firedNumar);
+    }
+    console.log(firedNumar);
+  }
 
   constructor() { }
 
